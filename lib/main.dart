@@ -80,6 +80,7 @@ class _ClimbPageState extends State<ClimbPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // TODO: Make GestureDetectors their own Widget
               GestureDetector(
                 onTapDown: (_){
                   setState(() {
@@ -121,7 +122,6 @@ class _ClimbPageState extends State<ClimbPage> {
                 width: 50,
                 height: 50
               ),
-              // TODO: Make GestureDetectors their own Widget
               GestureDetector(
                 onTapDown: (_){
                   setState(() {
