@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 // TODO: Add shape implementation
 // enum ButtonShape {
@@ -8,8 +9,25 @@ import 'package:flutter/material.dart';
 //   pressed
 // }
 
-colorLuminance(Color c){
+Color colorLuminance(String hex, double lum){
+  // Verifying & extending hex length
+  if (hex.length < 6) {
+    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+  }
   
+  // Convert to decimal and change luminosity
+  var rgb = "", c, i, x, y;
+	for (i = 0; i < 3; i++) {
+		x = hex.substring(i*2, 2);
+    c = int.parse(x.toRadixString(16));
+		// c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+    int a = c + (c * lum);
+    y = min(max(0, a), 255);
+    x = y.round().toRadixString(16);
+		rgb += ("00"+c).substring(c.length);
+	}
+  
+  return Color(int.parse(rgb.substring(0, 7), radix: 16) + 0xFF000000);
 }
 
 class NeumorphicRoundButton extends StatelessWidget {
