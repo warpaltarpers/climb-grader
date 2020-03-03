@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import '../main.dart';
+
 // TODO: Add shape implementation
 // enum ButtonShape {
 //   flat,
@@ -59,10 +61,13 @@ class NeumorphicRoundButton extends StatelessWidget {
   final double blur;
   final Function onPressed;
   
-  Color grad1 = Color(0xFFffffff);
-  Color grad2 = Color(0xFFe6e6e6);
-  Color shadow1 = changeLuminosity(mainColor, intensity);
-  Color shadow2 = changeLuminosity(mainColor, (intensity - intensity - intensity));
+  @override
+  void initState() { 
+    Color grad1 = changeLuminosity(mainColor, 0.15);
+    Color grad2 = changeLuminosity(mainColor, -0.15);
+    Color shadow1 = changeLuminosity(mainColor, intensity);
+    Color shadow2 = changeLuminosity(mainColor, (intensity - intensity - intensity));
+  }
   
   @override
   Widget build(BuildContext context) {
