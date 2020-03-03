@@ -9,6 +9,12 @@ import 'dart:math';
 //   pressed
 // }
 
+String colorToString(Color c){
+  String colorString = c.toString();
+  String valueString = colorString.split('(0x')[1].split(')')[0];
+  return valueString;
+}
+
 /*
   Generate lighter or darker color based on luminance
   
@@ -35,6 +41,11 @@ Color colorLuminance(String hex, double lum){
   return Color(int.parse(rgb.substring(0, 7), radix: 16) + 0xFF000000);
 }
 
+Color changeLuminosity(Color a, double lum){
+  String x = colorToString(a);
+  return colorLuminance(x, lum);
+}
+
 class NeumorphicRoundButton extends StatelessWidget {
   
   // TODO: Add light direction
@@ -50,8 +61,8 @@ class NeumorphicRoundButton extends StatelessWidget {
   
   Color grad1 = Color(0xFFffffff);
   Color grad2 = Color(0xFFe6e6e6);
-  Color shadow1 = Color(0xFFffffff);
-  Color shadow2 = Color(0xFFC4c4c4);
+  Color shadow1 = changeLuminosity(mainColor, intensity);
+  Color shadow2 = changeLuminosity(mainColor, (intensity - intensity - intensity));
   
   @override
   Widget build(BuildContext context) {
