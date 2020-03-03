@@ -9,6 +9,12 @@ import 'dart:math';
 //   pressed
 // }
 
+/*
+  Generate lighter or darker color based on luminance
+  
+  Transcribed to Dart from a JS article by Craig Buckler
+  https://bit.ly/2PKV1nE
+*/
 Color colorLuminance(String hex, double lum){
   // Verifying & extending hex length
   if (hex.length < 6) {
@@ -20,7 +26,6 @@ Color colorLuminance(String hex, double lum){
 	for (i = 0; i < 3; i++) {
 		x = hex.substring(i*2, 2);
     c = int.parse(x.toRadixString(16));
-		// c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
     int a = c + (c * lum);
     y = min(max(0, a), 255);
     x = y.round().toRadixString(16);
