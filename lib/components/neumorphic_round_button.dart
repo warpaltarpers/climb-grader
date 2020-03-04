@@ -48,31 +48,90 @@ Color changeLuminosity(Color a, double lum){
   return colorLuminance(x, lum);
 }
 
-class NeumorphicRoundButton extends StatelessWidget {
+class NeumorphicRoundButton extends StatefulWidget {
   
   // TODO: Add light direction
-  NeumorphicRoundButton({@required this.mainColor, @required this.size, 
-                         this.distance, this.intensity, this.blur, @required this.onPressed});
+  NeumorphicRoundButton({
+    @required this.mainColor, 
+    this.size = 300, 
+    this.distance = 20, 
+    this.intensity = 0.15, 
+    this.blur = 60, 
+    @required this.onTap, 
+    @required this.onRelease, 
+    @required this.icon
+  });
   
   final Color mainColor;
+  final Icon icon;
   final double size;
   final double distance;
   final double intensity;
   final double blur;
-  final Function onPressed;
+  final Function onTap;
+  final Function onRelease;
+
+  @override
+  _NeumorphicRoundButtonState createState() => _NeumorphicRoundButtonState();
+}
+
+class _NeumorphicRoundButtonState extends State<NeumorphicRoundButton> {
+
+  Color grad1;
+  Color grad2;
+  Color shadow1;
+  Color shadow2;
+  Color topLeftColor;
+  Color bottomRightColor;
   
   @override
   void initState() { 
-    Color grad1 = changeLuminosity(mainColor, 0.15);
-    Color grad2 = changeLuminosity(mainColor, -0.15);
-    Color shadow1 = changeLuminosity(mainColor, intensity);
-    Color shadow2 = changeLuminosity(mainColor, (intensity - intensity - intensity));
+    grad1 = changeLuminosity(widget.mainColor, 0.15);
+    grad2 = changeLuminosity(widget.mainColor, -0.15);
+    shadow1 = changeLuminosity(widget.mainColor, widget.intensity);
+    shadow2 = changeLuminosity(widget.mainColor, (widget.intensity - (widget.intensity*2)));
+    bottomRightColor = grad2;
+    topLeftColor = grad1;
   }
-  
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return GestureDetector(
+      onTapDown: (_){
+        setState(() {
+          updateColor(true);
+        });
+      },
+      onTapUp: (_){
+        setState(() {
+          updateColor(false);
+        });
+      },
+      child: Container(
+        width: 100,
+        height: 100,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [topLeftColor, bottomRightColor]
+          ),
+          boxShadow: [
+            new BoxShadow(
+              color: shadow1,
+              offset: new Offset(-30, -30),
+              blurRadius: widget.blur
+            ),
+            new BoxShadow(
+              color: shadow2,
+              offset: new Offset(30, 30),
+              blurRadius: widget.blur
+            )
+          ]
+        ),
+        child: widget.icon,
+      ),
     );
   }
 }
