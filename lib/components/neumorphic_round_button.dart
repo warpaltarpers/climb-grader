@@ -11,7 +11,7 @@ import 'dart:math';
 
 String colorToString(Color c){
   String colorString = c.toString();
-  String valueString = colorString.substring(10, 16);
+  String valueString = colorString.substring(10, colorString.length);
   return valueString;
 }
 
