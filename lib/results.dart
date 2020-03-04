@@ -18,49 +18,51 @@ class _ResultsPageState extends State<ResultsPage> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
       backgroundColor: mainColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Center(
-            child: Text(
-              'ROUTE SUGGESTION',
-              style: GoogleFonts.titilliumWeb(
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w600,
-                fontSize: 38
+      body: SafeArea(
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Center(
+              child: Text(
+                'ROUTE SUGGESTION',
+                style: GoogleFonts.titilliumWeb(
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 38.0
+                ),
               ),
             ),
-          ),
-          Center(
-            child: Text(
-              '5.9',
-              style: GoogleFonts.titilliumWeb(
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w600,
-                fontSize: 160,
-                color: Colors.greenAccent
+            Center(
+              child: Text(
+                '5.9',
+                style: GoogleFonts.titilliumWeb(
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 160.0,
+                  color: Colors.greenAccent
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 20,
-            height: 20
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.arrowleft)),
-              SizedBox(
-                width: 50,
-                height: 50
-              ),
-              NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.retweet)),
-            ],
-          ),
-        ],
+            SizedBox(
+              width: 20.0,
+              height: 20.0
+            ),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.arrowleft)),
+                SizedBox(
+                  width: 50.0,
+                  height: 50.0
+                ),
+                NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.retweet)),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

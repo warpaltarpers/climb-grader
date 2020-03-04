@@ -33,7 +33,7 @@ Color colorLuminance(String hex, double lum){
   var rgb = "", c, i, x, y;
 	for (i = 0; i < 3; i++) {
 		x = hex.substring(i*2, 2);
-    c = int.parse(x.toRadixString(16));
+    c = int.parse(x, radix: 16);
     int a = c + (c * lum);
     y = min(max(0, a), 255);
     x = y.round().toRadixString(16);
@@ -57,10 +57,10 @@ class NeumorphicRoundButton extends StatefulWidget {
   // TODO: Add light direction
   NeumorphicRoundButton({
     @required this.mainColor, 
-    this.size = 300, 
-    this.distance = 20, 
+    this.size = 300.0, 
+    this.distance = 20.0, 
     this.intensity = 0.15, 
-    this.blur = 60, 
+    this.blur = 60.0, 
     @required this.onTap, 
     @required this.onRelease, 
     @required this.icon
