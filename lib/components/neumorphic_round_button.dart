@@ -83,6 +83,7 @@ class _NeumorphicRoundButtonState extends State<NeumorphicRoundButton> {
   Color grad2;
   Color shadow1;
   Color shadow2;
+  // TODO: Change naming convention when light source added
   Color topLeftColor;
   Color bottomRightColor;
   
