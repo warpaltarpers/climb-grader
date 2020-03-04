@@ -14,9 +14,7 @@ class ResultsPage extends StatefulWidget {
 }
 
 class _ResultsPageState extends State<ResultsPage> {
-  Color bottomRightColor = grad2;
-  Color topLeftColor = grad1;
-
+  
   void updateColor(bool pressed) {
     if (pressed) {
       if (topLeftColor == grad1) {
@@ -71,43 +69,7 @@ class _ResultsPageState extends State<ResultsPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               // TODO: Make GestureDetectors their own Widget
-              GestureDetector(
-                onTapDown: (_){
-                  setState(() {
-                    updateColor(true);
-                  });
-                },
-                onTapUp: (_){
-                  setState(() {
-                    updateColor(false);
-                  });
-                },
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [topLeftColor, bottomRightColor]
-                    ),
-                    boxShadow: [
-                      new BoxShadow(
-                        color: shadow1,
-                        offset: new Offset(-30, -30),
-                        blurRadius: 60
-                      ),
-                      new BoxShadow(
-                        color: shadow2,
-                        offset: new Offset(30, 30),
-                        blurRadius: 60
-                      )
-                    ]
-                  ),
-                  child: Icon(AntDesign.arrowleft),
-                ),
-              ),
+              
               SizedBox(
                 width: 50,
                 height: 50
