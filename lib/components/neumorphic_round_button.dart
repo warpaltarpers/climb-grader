@@ -11,7 +11,7 @@ import 'dart:math';
 
 String colorToString(Color c){
   String colorString = c.toString();
-  String valueString = colorString.split('(0x')[1].split(')')[0];
+  String valueString = colorString.substring(10, 16);
   return valueString;
 }
 
