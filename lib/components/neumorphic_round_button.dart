@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import '../main.dart';
-
 // TODO: Add shape implementation
 // enum ButtonShape {
 //   flat,
@@ -107,6 +105,7 @@ class _NeumorphicRoundButtonState extends State<NeumorphicRoundButton> {
   
   @override
   void initState() { 
+    super.initState();
     grad1 = changeLuminosity(widget.mainColor, 0.15);
     grad2 = changeLuminosity(widget.mainColor, -0.15);
     shadow1 = changeLuminosity(widget.mainColor, widget.intensity);
