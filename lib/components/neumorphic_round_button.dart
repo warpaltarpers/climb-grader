@@ -28,14 +28,14 @@ Color colorLuminance(String hex, double lum){
   }
   
   // Convert to decimal and change luminosity
-  var rgb = "", c, i, x, y;
+  var rgb = "", i;
 	for (i = 0; i < 3; i++) {
-		x = hex.substring(i*2, 2);
-    c = int.parse(x, radix: 16);
-    int a = c + (c * lum);
-    y = min(max(0, a), 255);
+		String x = hex.substring(i*2, 2);
+    var c = int.parse(x, radix: 16);
+    double a = c + (c * lum);
+    double y = min(max(0, a), 255);
     x = y.round().toRadixString(16);
-		rgb += ("00"+c).substring(c.length);
+		rgb += ("00"+x).substring(x.length);
 	}
   
   return Color(int.parse(rgb.substring(0, 7), radix: 16) + 0xFF000000);
