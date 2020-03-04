@@ -48,6 +48,10 @@ Color changeLuminosity(Color a, double lum){
   return colorLuminance(x, lum);
 }
 
+double negativeConvert(double num){
+  return num - (num * 2);
+}
+
 class NeumorphicRoundButton extends StatefulWidget {
   
   // TODO: Add light direction
@@ -84,12 +88,29 @@ class _NeumorphicRoundButtonState extends State<NeumorphicRoundButton> {
   Color topLeftColor;
   Color bottomRightColor;
   
+  void updateColor(bool pressed) {
+    if (pressed) {
+      if (topLeftColor == grad1) {
+        topLeftColor = grad2;
+        bottomRightColor = grad1;
+      }
+    } else if (!pressed) {
+      if (topLeftColor == grad2) {
+        topLeftColor = grad1;
+        bottomRightColor = grad2;
+      }
+    } else {
+      topLeftColor = grad1;
+      bottomRightColor = grad2;
+    }
+  }
+  
   @override
   void initState() { 
     grad1 = changeLuminosity(widget.mainColor, 0.15);
     grad2 = changeLuminosity(widget.mainColor, -0.15);
     shadow1 = changeLuminosity(widget.mainColor, widget.intensity);
-    shadow2 = changeLuminosity(widget.mainColor, (widget.intensity - (widget.intensity*2)));
+    shadow2 = changeLuminosity(widget.mainColor, negativeConvert(widget.intensity));
     bottomRightColor = grad2;
     topLeftColor = grad1;
   }
@@ -98,18 +119,20 @@ class _NeumorphicRoundButtonState extends State<NeumorphicRoundButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_){
+        widget.onTap();
         setState(() {
           updateColor(true);
         });
       },
       onTapUp: (_){
+        widget.onRelease();
         setState(() {
           updateColor(false);
         });
       },
       child: Container(
-        width: 100,
-        height: 100,
+        width: widget.size,
+        height: widget.size,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: LinearGradient(
@@ -120,12 +143,12 @@ class _NeumorphicRoundButtonState extends State<NeumorphicRoundButton> {
           boxShadow: [
             new BoxShadow(
               color: shadow1,
-              offset: new Offset(-30, -30),
+              offset: new Offset(negativeConvert(widget.distance), negativeConvert(widget.distance)),
               blurRadius: widget.blur
             ),
             new BoxShadow(
               color: shadow2,
-              offset: new Offset(30, 30),
+              offset: new Offset(widget.distance, widget.distance),
               blurRadius: widget.blur
             )
           ]
