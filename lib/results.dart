@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'components/neumorphic_round_button.dart';
 
-Color grad1 = Color(0xFFffffff);
-Color grad2 = Color(0xFFe6e6e6);
+// Color grad1 = Color(0xFFffffff);
+// Color grad2 = Color(0xFFe6e6e6);
 Color mainColor = Color(0xFFffffff);
-Color shadow1 = Color(0xFFffffff);
-Color shadow2 = Color(0xFFC4c4c4);
+// Color shadow1 = Color(0xFFffffff);
+// Color shadow2 = Color(0xFFC4c4c4);
 
 class ResultsPage extends StatefulWidget {
   @override
@@ -14,23 +15,6 @@ class ResultsPage extends StatefulWidget {
 }
 
 class _ResultsPageState extends State<ResultsPage> {
-  
-  void updateColor(bool pressed) {
-    if (pressed) {
-      if (topLeftColor == grad1) {
-        topLeftColor = grad2;
-        bottomRightColor = grad1;
-      }
-    } else if (!pressed) {
-      if (topLeftColor == grad2) {
-        topLeftColor = grad1;
-        bottomRightColor = grad2;
-      }
-    } else {
-      topLeftColor = grad1;
-      bottomRightColor = grad2;
-    }
-  }
   
   @override
   Widget build(BuildContext context) {
@@ -68,49 +52,12 @@ class _ResultsPageState extends State<ResultsPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // TODO: Make GestureDetectors their own Widget
-              
+              NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.arrowleft)),
               SizedBox(
                 width: 50,
                 height: 50
               ),
-              GestureDetector(
-                onTapDown: (_){
-                  setState(() {
-                    updateColor(true);
-                  });
-                },
-                onTapUp: (_){
-                  setState(() {
-                    updateColor(false);
-                  });
-                },
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [topLeftColor, bottomRightColor]
-                    ),
-                    boxShadow: [
-                      new BoxShadow(
-                        color: shadow1,
-                        offset: new Offset(-30, -30),
-                        blurRadius: 60
-                      ),
-                      new BoxShadow(
-                        color: shadow2,
-                        offset: new Offset(30, 30),
-                        blurRadius: 60
-                      )
-                    ]
-                  ),
-                  child: Icon(AntDesign.retweet),
-                ),
-              ),
+              NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.retweet)),
             ],
           ),
         ],
