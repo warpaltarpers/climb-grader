@@ -30,11 +30,11 @@ Color colorLuminance(String hex, double lum){
   // Convert to decimal and change luminosity
   var rgb = "", i;
 	for (i = 0; i < 3; i++) {
-		String x = hex.substring(i*2, 2);
-    var c = int.parse(x, radix: 16);
-    double a = c + (c * lum);
-    double y = min(max(0, a), 255);
-    x = y.round().toRadixString(16);
+		String x = hex.substring(i*2, (i*2)+2);
+		var c = int.parse(x, radix: 16);
+		double a = c + (c * lum);
+		double y = min(max(0, a), 255);
+		x = y.round().toRadixString(16);
 		rgb += ("00"+x).substring(x.length);
 	}
   
