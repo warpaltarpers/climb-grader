@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'results.dart';
+import 'start_screen.dart';
 
 void main() => runApp(ClimbGrader());
 
@@ -9,8 +10,8 @@ class ClimbGrader extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/' : (context) => ResultsPage(),
-        // '/results' : (context) => ResultsPage(),
+        '/' : (context) => Start(),
+        '/results' : (context) => ResultsPage(),
       },
     );
   }
