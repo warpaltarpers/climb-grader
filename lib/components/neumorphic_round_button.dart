@@ -38,7 +38,7 @@ Color colorLuminance(String hex, double lum){
 		rgb += ("00"+x).substring(x.length);
 	}
   
-  return Color(int.parse(rgb.substring(0, 7), radix: 16) + 0xFF000000);
+  return Color(int.parse(rgb.substring(0, rgb.length), radix: 16) + 0xFF000000);
 }
 
 Color changeLuminosity(Color a, double lum){
