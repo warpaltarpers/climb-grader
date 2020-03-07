@@ -9,6 +9,7 @@ import 'dart:math';
 //   pressed
 // }
 
+// Changes hex code in Color to String
 String colorToString(Color c){
   String colorString = c.toString();
   String valueString = colorString.substring(10, colorString.length - 1);
@@ -38,6 +39,7 @@ Color colorLuminance(String hex, double lum){
 		rgb += ("00"+x).substring(x.length);
 	}
   
+  // Return results as a Color object
   return Color(int.parse(rgb.substring(0, rgb.length), radix: 16) + 0xFF000000);
 }
 
