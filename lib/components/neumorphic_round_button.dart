@@ -55,7 +55,7 @@ class NeumorphicRoundButton extends StatefulWidget {
   // TODO: Add light direction
   NeumorphicRoundButton({
     @required this.mainColor, 
-    this.size = 300.0, 
+    this.size = 100.0, 
     this.distance = 20.0, 
     this.intensity = 0.15, 
     this.blur = 60.0, 
