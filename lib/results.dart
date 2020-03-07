@@ -3,11 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'components/neumorphic_round_button.dart';
 
-// Color grad1 = Color(0xFFffffff);
-// Color grad2 = Color(0xFFe6e6e6);
 Color mainColor = Color(0xFFffffff);
-// Color shadow1 = Color(0xFFffffff);
-// Color shadow2 = Color(0xFFC4c4c4);
 
 class ResultsPage extends StatefulWidget {
   @override
@@ -49,8 +45,26 @@ class _ResultsPageState extends State<ResultsPage> {
             width: 20.0,
             height: 20.0
           ),
-          new Expanded(child: NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.arrowleft))),
-          new Expanded(child: NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.retweet))),
+          Row(
+            children: <Widget>[
+              new Expanded(
+                child: NeumorphicRoundButton(
+                  mainColor: mainColor,
+                  onTap: null,
+                  onRelease: null,
+                  icon: Icon(AntDesign.arrowleft)
+                )
+              ),
+              new Expanded(
+                child: NeumorphicRoundButton(
+                  mainColor: mainColor,
+                  onTap: null,
+                  onRelease: null, 
+                  icon: Icon(AntDesign.retweet)
+                )
+              ),
+            ],
+          ),
         ],
       ),
     );
