@@ -18,7 +18,7 @@ class _ResultsPageState extends State<ResultsPage> {
   
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       backgroundColor: mainColor,
       body: new Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -49,17 +49,8 @@ class _ResultsPageState extends State<ResultsPage> {
             width: 20.0,
             height: 20.0
           ),
-          new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.arrowleft)),
-              SizedBox(
-                width: 50.0,
-                height: 50.0
-              ),
-              NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.retweet)),
-            ],
-          ),
+          new Expanded(child: NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.arrowleft))),
+          new Expanded(child: NeumorphicRoundButton(mainColor: mainColor, onTap: null, onRelease: null, icon: Icon(AntDesign.retweet))),
         ],
       ),
     );
