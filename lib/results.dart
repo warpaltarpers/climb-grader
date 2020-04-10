@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'components/neumorphic_round_button.dart';
 
 Color mainColor = Color(0xFFffffff);
 
@@ -22,7 +21,7 @@ class _ResultsPageState extends State<ResultsPage> {
         children: <Widget>[
           Center(
             child: Text(
-              'ROUTE SUGGESTION',
+              'ROUTE SUGGESTIONS',
               style: GoogleFonts.titilliumWeb(
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w600,
@@ -48,19 +47,17 @@ class _ResultsPageState extends State<ResultsPage> {
           Row(
             children: <Widget>[
               new Expanded(
-                child: NeumorphicRoundButton(
-                  mainColor: mainColor,
-                  onTap: null,
-                  onRelease: null,
-                  icon: Icon(AntDesign.arrowleft)
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }, 
+                  child: Icon(AntDesign.back)
                 )
               ),
               new Expanded(
-                child: NeumorphicRoundButton(
-                  mainColor: mainColor,
-                  onTap: null,
-                  onRelease: null, 
-                  icon: Icon(AntDesign.retweet)
+                child: FlatButton(
+                  onPressed: null, 
+                  child: Icon(AntDesign.retweet)
                 )
               ),
             ],
