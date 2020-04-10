@@ -47,17 +47,17 @@ class _ResultsPageState extends State<ResultsPage> {
           Row(
             children: <Widget>[
               new Expanded(
-                child: FlatButton(
+                child: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   }, 
-                  child: Icon(AntDesign.back)
+                  icon: Icon(AntDesign.back)
                 )
               ),
               new Expanded(
-                child: FlatButton(
+                child: IconButton(
                   onPressed: null, 
-                  child: Icon(AntDesign.retweet)
+                  icon: Icon(AntDesign.retweet)
                 )
               ),
             ],
