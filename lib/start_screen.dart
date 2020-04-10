@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
+enum GradingSystem {
+  yosemite,
+  ewbank,
+  french,
+  hueco,
+  font,
+}
+
 class Start extends StatefulWidget {
   @override
   _StartState createState() => _StartState();
@@ -33,6 +41,11 @@ class _StartState extends State<Start> {
                   fontSize: 38.0
                 ),
               ),
+              SizedBox(
+                width: 20,
+                height: 20
+              ),
+              DropDown
               SizedBox(
                 width: 20,
                 height: 20
