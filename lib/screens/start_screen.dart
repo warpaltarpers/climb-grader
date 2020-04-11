@@ -2,7 +2,7 @@ import 'package:climb_grader/screens/form.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import '../components/systems.dart' as sys;
+import '../components/climbing_enums.dart' as sys;
 import '../components/functions.dart';
 
 class Start extends StatefulWidget {

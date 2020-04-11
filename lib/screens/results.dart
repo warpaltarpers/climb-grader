@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import '../components/reusable_card.dart';
 
 Color mainColor = Color(0xFFffffff);
 
@@ -30,13 +31,19 @@ class _ResultsPageState extends State<ResultsPage> {
             ),
           ),
           Center(
-            child: Text(
-              '5.9',
-              style: GoogleFonts.titilliumWeb(
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w600,
-                fontSize: 160.0,
-                color: Colors.greenAccent
+            child: ReusableCard(
+              cardColor: Color(0xfffafafa),
+              cardChild: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Text(
+                  'Because of \{x\}, grade should be no higher than \{y\}',
+                  style: GoogleFonts.titilliumWeb(
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 30.0,
+                    color: Colors.greenAccent
+                  ),
+                ),
               ),
             ),
           ),
@@ -49,7 +56,7 @@ class _ResultsPageState extends State<ResultsPage> {
               new Expanded(
                 child: IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/');
                   }, 
                   icon: Icon(AntDesign.back)
                 )

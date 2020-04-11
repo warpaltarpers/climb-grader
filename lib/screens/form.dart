@@ -1,7 +1,9 @@
+import 'package:climb_grader/components/bottom_button.dart';
 import 'package:climb_grader/components/reusable_card.dart';
+import 'package:climb_grader/screens/results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import '../components/systems.dart';
+import '../components/climbing_enums.dart';
 import '../components/constants.dart';
 import '../components/round_icon_button.dart';
 import 'dart:io' show Platform;
@@ -17,6 +19,7 @@ class FormPage extends StatefulWidget {
 
 class _FormPageState extends State<FormPage> {
   int maxAngle = 180;
+  String mainHoldComp = 'Jug';
   
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class _FormPageState extends State<FormPage> {
                   cardChild: Column(
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(top: 15.0),
+                        padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
                         child: Text(
                           'MAX ANGLE',
                           style: kLabelTextStyle,
@@ -102,6 +105,35 @@ class _FormPageState extends State<FormPage> {
                     ],
                   ),
                 ),
+                ReusableCard(
+                  cardColor: kActiveCardColor,
+                  cardChild: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: <Widget>[
+                          Text('MAIN HOLD COMP', style: kLabelTextStyle),
+                          SizedBox(height: 5.0),
+                          DropdownButton<String>(
+                            items: holds,
+                            onChanged: (String newValue) {
+                              setState(() {
+                                mainHoldComp = newValue;
+                              });
+                            },
+                            value: mainHoldComp,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                BottomButton(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/results');
+                  },
+                  buttonTitle: 'GENERATE',
+                )
               ],
             ),
           ),
