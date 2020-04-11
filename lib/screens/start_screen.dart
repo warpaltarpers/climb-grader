@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'components/systems.dart' as sys;
+import '../components/systems.dart' as sys;
 
 class Start extends StatefulWidget {
   @override
