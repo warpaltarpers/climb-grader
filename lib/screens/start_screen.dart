@@ -1,7 +1,9 @@
+import 'package:climb_grader/screens/form.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import '../components/systems.dart' as sys;
+import '../components/functions.dart';
 
 class Start extends StatefulWidget {
   @override
@@ -61,7 +63,11 @@ class _StartState extends State<Start> {
               ),
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/results');
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => FormPage(
+                      gradeSystem: parseSystem(system),
+                    )
+                  ));
                 },
                 icon: Icon(
                   AntDesign.playcircleo,
