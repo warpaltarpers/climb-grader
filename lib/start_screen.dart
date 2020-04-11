@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-
-enum GradingSystem {
-  yosemite,
-  ewbank,
-  french,
-  hueco,
-  font,
-}
+import 'components/systems.dart' as sys;
 
 class Start extends StatefulWidget {
   @override
@@ -16,18 +9,22 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
+  String system = 'Yosemite';
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/bg_img.png'),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.55), BlendMode.dstATop),
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage('images/bg_img.png'),
+        //     fit: BoxFit.cover,
+        //     colorFilter: ColorFilter.mode(
+        //       Colors.white.withOpacity(0.45), 
+        //       BlendMode.dstATop
+        //     ),
+        //   ),
+        // ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +42,19 @@ class _StartState extends State<Start> {
                 width: 20,
                 height: 20
               ),
-              DropDown
+              DropdownButton(
+                items: sys.systems,
+                onChanged: (String newSystem) {
+                  setState(() {
+                    system = newSystem;
+                  });
+                },
+                value: system,
+                icon: Icon(
+                  AntDesign.caretdown,
+                  size: 10
+                ),
+              ),
               SizedBox(
                 width: 20,
                 height: 20
