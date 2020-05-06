@@ -22,33 +22,6 @@ enum Holds {
   flake,
 }
 
-List<DropdownMenuItem<String>> holds = [
-  DropdownMenuItem(
-    value: 'Jug',
-    child: Text('Jug'),
-  ),
-  DropdownMenuItem(
-    value: 'Edge',
-    child: Text('Edge'),
-  ),
-  DropdownMenuItem(
-    value: 'Crimp',
-    child: Text('Crimp'),
-  ),
-  DropdownMenuItem(
-    value: 'Pinch',
-    child: Text('Pinch'),
-  ),
-  DropdownMenuItem(
-    value: 'Sloper',
-    child: Text('Sloper'),
-  ),
-  DropdownMenuItem(
-    value: 'Pocket',
-    child: Text('Pocket'),
-  ),
-  DropdownMenuItem(
-    value: 'Flake',
-    child: Text('Flake'),
-  ),
+List<String> holds = [
+  'JUG', 'EDG', 'CRM', 'PIN', 'SLO', 'POC', 'FLA'
 ];

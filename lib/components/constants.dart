@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kCardTextColor = Color(0xff111111);
+const kCardTextColor = Color(0xFFFFFFFF);
 
 const kCardTextStyle = TextStyle(
   fontSize: 18.0,
@@ -11,6 +11,12 @@ const kLabelTextStyle = TextStyle(
   fontSize: 18.0,
   color: kCardTextColor,
   fontWeight: FontWeight.w900,
+);
+
+const kDegreeSymbol = TextStyle(
+  fontSize: 40.0,
+  color: kCardTextColor,
+  fontWeight: FontWeight.w300
 );
 
 const kNumberTextStyle = TextStyle(
@@ -27,5 +33,5 @@ const kColorGradient = [
   // Color(0xFFF0F3BD)
 ];
 
-const kActiveCardColor = Color(0xa04ccdff);
+const kActiveCardColor = Color(0x50FFFFFF);
 const kInactiveCardColor = Color(0xa07FDBFF);
