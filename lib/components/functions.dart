@@ -5,19 +5,19 @@ GradingSystem parseSystem(String iS) {
   GradingSystem rS;
   
   switch (iS) {
-    case 'Yosemite':
+    case 'YOS':
       rS = GradingSystem.yosemite;
       break;
-    case 'Ewbank':
+    case 'EWB':
       rS = GradingSystem.ewbank;
       break;
-    case 'French':
+    case 'FRE':
       rS = GradingSystem.french;
       break;
-    case 'Hueco (V)':
+    case 'V':
       rS = GradingSystem.hueco;
       break;
-    case 'Font':
+    case 'FON':
       rS = GradingSystem.hueco;
       break;
   }

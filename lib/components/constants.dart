@@ -19,5 +19,13 @@ const kNumberTextStyle = TextStyle(
   color: kCardTextColor,
 );
 
+const kColorGradient = [
+  Color(0xFF05668D),
+  // Color(0xFF028090),
+  // Color(0xFF00A896),
+  Color(0xFF02C39A),
+  // Color(0xFFF0F3BD)
+];
+
 const kActiveCardColor = Color(0xa04ccdff);
 const kInactiveCardColor = Color(0xa07FDBFF);
