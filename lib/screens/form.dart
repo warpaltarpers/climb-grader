@@ -3,15 +3,16 @@ import 'package:climb_grader/components/reusable_card.dart';
 import 'package:climb_grader/screens/results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import '../components/climbing_enums.dart';
+import '../components/climbing_enums.dart' as sys;
 import '../components/constants.dart';
 import '../components/round_icon_button.dart';
 import 'dart:io' show Platform;
+import 'package:carousel_select_widget/carousel_select_widget.dart';
 
 class FormPage extends StatefulWidget {
   FormPage({this.gradeSystem});
   
-  final GradingSystem gradeSystem;
+  final sys.GradingSystem gradeSystem;
   
   @override
   _FormPageState createState() => _FormPageState();
@@ -26,6 +27,13 @@ class _FormPageState extends State<FormPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: kColorGradient
+          )
+        ),
         child: SafeArea(
           child: Center(
             child: Column(
@@ -61,12 +69,15 @@ class _FormPageState extends State<FormPage> {
                             maxAngle.toString(),
                             style: kNumberTextStyle,
                           ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 2.0)
+                          ),
                           Text(
                             '°',
-                            style: kLabelTextStyle,
+                            style: kDegreeSymbol,
                           ),
                           SizedBox(
-                            width: 20.0,
+                            width: 14.0,
                           ),
                           RoundIconButton(
                             icon: Icons.add,
@@ -89,7 +100,7 @@ class _FormPageState extends State<FormPage> {
                             overlayRadius: 30.0,
                           ),
                           activeTrackColor: Colors.white,
-                          inactiveTrackColor: Color(0xff33c5ff),
+                          inactiveTrackColor: Color(0x50ffffff),
                         ),
                         child: Slider(
                           value: maxAngle.toDouble(),
@@ -113,15 +124,22 @@ class _FormPageState extends State<FormPage> {
                       child: Column(
                         children: <Widget>[
                           Text('MAIN HOLD COMP', style: kLabelTextStyle),
-                          SizedBox(height: 5.0),
-                          DropdownButton<String>(
-                            items: holds,
-                            onChanged: (String newValue) {
+                          SizedBox(height: 10.0),
+                          CarouselSelect(
+                            valueList: sys.holds,
+                            onChanged: (String newHolds) {
                               setState(() {
-                                mainHoldComp = newValue;
+                                mainHoldComp = newHolds;
                               });
                             },
-                            value: mainHoldComp,
+                            initialPosition: 0,
+                            scrollDirection: ScrollDirection.horizontal,
+                            activeItemFontSize: 25.0,
+                            activeItemTextColor: Color(0xFFFFFFFF),
+                            passiveItemFontSize: 20.0,
+                            passiveItemsTextColor: Color(0xFFFFFFFF).withOpacity(0.7),
+                            backgroundColor: Color(0xFFFFFFFF).withOpacity(0.0),
+                            height: 50.0,
                           ),
                         ],
                       ),

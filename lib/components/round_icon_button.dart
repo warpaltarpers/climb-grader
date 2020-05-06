@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:climb_grader/components/constants.dart';
 
 class RoundIconButton extends StatelessWidget {
   
@@ -12,7 +11,7 @@ class RoundIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       shape: CircleBorder(),
-      fillColor: Color(0xFFccf1ff),
+      fillColor: Color(0x50FFFFFF),
       constraints: BoxConstraints.tightFor(
         width: 40.0,
         height: 40.0,
