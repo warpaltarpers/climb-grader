@@ -1,4 +1,3 @@
-import 'package:climb_grader/components/bottom_button.dart';
 import 'package:climb_grader/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
