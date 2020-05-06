@@ -8,27 +8,8 @@ enum GradingSystem {
   font,
 }
 
-List<DropdownMenuItem<String>> systems = [
-  DropdownMenuItem(
-    value: 'Yosemite',
-    child: Text('Yosemite'),
-  ),
-  DropdownMenuItem(
-    value: 'Ewbank',
-    child: Text('Ewbank'),
-  ),
-  DropdownMenuItem(
-    value: 'French',
-    child: Text('French'),
-  ),
-  DropdownMenuItem(
-    value: 'Hueco (V)',
-    child: Text('Hueco (V)'),
-  ),
-  DropdownMenuItem(
-    value: 'Font',
-    child: Text('Font'),
-  ),
+List<String> systems = [
+  'YOS', 'EWB', 'FRE', 'V', 'FON'
 ];
 
 enum Holds {
