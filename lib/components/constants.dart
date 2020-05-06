@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const kCardTextColor = Color(0xFFFFFFFF);
 
@@ -7,10 +8,20 @@ const kCardTextStyle = TextStyle(
   color: kCardTextColor,
 );
 
-const kLabelTextStyle = TextStyle(
-  fontSize: 18.0,
-  color: kCardTextColor,
-  fontWeight: FontWeight.w900,
+TextStyle kLabelTextStyle = GoogleFonts.lato(
+  textStyle: TextStyle(
+    fontSize: 18.0,
+    color: kCardTextColor,
+    fontWeight: FontWeight.w900,
+  )
+);
+
+TextStyle kResultsStyle = GoogleFonts.lato(
+  textStyle: TextStyle(
+    fontSize: 25.0,
+    color: kCardTextColor,
+    fontWeight: FontWeight.w500,
+  )
 );
 
 const kDegreeSymbol = TextStyle(
@@ -21,16 +32,13 @@ const kDegreeSymbol = TextStyle(
 
 const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
-  fontWeight: FontWeight.w900,
+  fontWeight: FontWeight.w400,
   color: kCardTextColor,
 );
 
 const kColorGradient = [
-  Color(0xFF05668D),
-  // Color(0xFF028090),
-  // Color(0xFF00A896),
-  Color(0xFF02C39A),
-  // Color(0xFFF0F3BD)
+  Color(0xFF1a936f),
+  Color(0xFF88d498),
 ];
 
 const kActiveCardColor = Color(0x50FFFFFF);

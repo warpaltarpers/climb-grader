@@ -1,12 +1,10 @@
 import 'package:climb_grader/components/bottom_button.dart';
 import 'package:climb_grader/components/reusable_card.dart';
-import 'package:climb_grader/screens/results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../components/climbing_enums.dart' as sys;
 import '../components/constants.dart';
 import '../components/round_icon_button.dart';
-import 'dart:io' show Platform;
 import 'package:carousel_select_widget/carousel_select_widget.dart';
 
 class FormPage extends StatefulWidget {
@@ -37,6 +35,8 @@ class _FormPageState extends State<FormPage> {
         child: SafeArea(
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 ReusableCard(
                   cardColor: kActiveCardColor,
@@ -146,11 +146,17 @@ class _FormPageState extends State<FormPage> {
                     ),
                   ),
                 ),
-                BottomButton(
-                  onTap: () {
+                ReusableCard(
+                  onPress: () {
                     Navigator.pushNamed(context, '/results');
                   },
-                  buttonTitle: 'GENERATE',
+                  cardChild: Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: Text('GENERATE', style: kLabelTextStyle),
+                    ),
+                  ),
+                  cardColor: Color(0xFFFFFFFF).withOpacity(0.0),
                 )
               ],
             ),

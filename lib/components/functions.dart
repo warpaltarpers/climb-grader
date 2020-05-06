@@ -1,5 +1,4 @@
 import 'package:climb_grader/components/climbing_enums.dart';
-import 'package:flutter/material.dart';
 
 GradingSystem parseSystem(String iS) {
   GradingSystem rS;
